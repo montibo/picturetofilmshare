@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: animatemypicture-backend
+    ports:
+      - "8093:8093"
+    environment:
+      - ENVIRONMENT=development
+      - PORT=8093
+      - CORS_ORIGINS=http://localhost:5177,http://localhost:3000
+    env_file:
+      - .env
+    volumes:
+      - ./backend/app:/app/app  # Hot reload for development
+    networks:
+      - animatemypicture-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8093/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: animatemypicture-frontend
+    ports:
+      - "5177:80"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://localhost:8093
+    depends_on:
+      - backend
+    networks:
+      - animatemypicture-network
+    restart: unless-stopped
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: animatemypicture-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - animatemypicture-network
+    restart: unless-stopped
+    profiles:
+      - full  # Only start with --profile full
+
+  # Optional: Local development database (Firestore emulator)
+  firestore-emulator:
+    image: gcr.io/google.com/cloudsdktool/cloud-sdk:latest
+    container_name: animatemypicture-firestore
+    command: gcloud emulators firestore start --host-port=0.0.0.0:8080
+    ports:
+      - "8080:8080"
+    networks:
+      - animatemypicture-network
+    restart: unless-stopped
+    profiles:
+      - full  # Only start with --profile full
+
+networks:
+  animatemypicture-network:
+    driver: bridge
+
+volumes:
+  redis-data:

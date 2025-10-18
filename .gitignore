@@ -1,0 +1,140 @@
+# Environment variables
+.env
+.env.local
+.env.production
+.env*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+venv/
+env/
+ENV/
+.venv/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+jobs.db
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# Media files
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+!demo/*.mp4
+!demo/*.jpg
+
+# Google Cloud
+*.json
+!package.json
+!tsconfig.json
+!package-lock.json
+service-account*.json
+gcs-key*.json
+
+# Stripe
+stripe-cli/
+
+# Build artifacts
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+
+# Production
+/production
+/prod
+*.production.*
+
+# Local scripts
+local-scripts/
+scripts-local/
+test-*.py
+test-*.sh
+admin-*.html
+!admin_backend.py
+
+# Sync and backup files
+sync_*.py
+backup_*.py
+*.sync
+*.backup
+.sync_state.pkl
+
+# Thumbnails
+thumbnails/
+!thumbnails/.gitkeep

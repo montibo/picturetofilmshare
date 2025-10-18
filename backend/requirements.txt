@@ -1,0 +1,60 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Async Support
+aiohttp==3.9.1
+asyncio==3.4.3
+
+# Payment Processing
+stripe==7.5.0
+
+# AI & Machine Learning
+replicate==0.22.0
+google-generativeai==0.3.2  # Optional: for Gemini prompt enhancement
+
+# Image Processing
+Pillow==10.1.0
+
+# Cloud Storage (Google Cloud)
+google-cloud-storage==2.13.0
+google-cloud-firestore==2.14.0  # Optional: for database
+google-cloud-tasks==2.15.0  # Optional: for task queue
+
+# Email Service
+sib-api-v3-sdk==7.6.0  # Brevo (formerly SendinBlue)
+
+# WhatsApp Integration (Optional)
+twilio==8.10.0  # Optional: for WhatsApp notifications
+
+# Audio Processing (Optional)
+elevenlabs==0.3.0  # Optional: for AI music generation
+
+# Security & Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Utilities
+pydantic==2.5.2
+pydantic-settings==2.1.0
+httpx==0.25.2
+certifi==2023.11.17
+
+# Development & Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.12.0
+isort==5.13.2
+mypy==1.7.1
+
+# Logging & Monitoring
+structlog==23.2.0
+sentry-sdk[fastapi]==1.39.1  # Optional: for error tracking
+
+# Rate Limiting (Optional)
+slowapi==0.1.9
+
+# Caching (Optional)
+redis==5.0.1  # Optional: for caching
